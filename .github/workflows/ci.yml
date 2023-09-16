@@ -1,0 +1,74 @@
+name: ⛷ PR tests
+
+env:
+  CI: true
+  NODE_VERSION: 18
+
+defaults:
+  run:
+    shell: bash
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      # Postgres image for backend integration tests
+      postgres:
+        image: postgres:14-alpine
+        env:
+          POSTGRES_DB: seed
+          POSTGRES_USER: seed
+          POSTGRES_PASSWORD: Ge0rgesMoustaki
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5434:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8.6.4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: build
+        run: pnpm build
+      - name: linters
+        run: pnpm lint
+      - name: Tests
+        run: pnpm test
+      - name: Dependency Cruiser
+        run: pnpm test:circular
+  security-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8.6.4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Check for vulnerable dependencies
+        run: pnpm run security

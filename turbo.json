@@ -1,0 +1,94 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      // A package's `build` script depends on that package's
+      // dependencies and devDependencies
+      // `build` tasks  being completed first
+      // (the `^` symbol signifies `upstream`).
+      "dependsOn": [
+        "^build"
+      ],
+      // note: output globs are relative to each package's `package.json`
+      // (and not the monorepo root)
+      "outputs": []
+    },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:circular": {
+      "outputs": [],
+      "inputs": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/*.js",
+        "**/package.json",
+        "../../packages/dependency-cruiser-config-custom/**"
+      ]
+    },
+    "lint": {
+      "outputs": [],
+      "inputs": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/*.js",
+        "**/package.json",
+        "../../packages/eslint-config-custom/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "lint:style": {
+      "outputs": [],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "lint:fix": {
+      "outputs": [],
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/*.js",
+        "**/package.json",
+        "../../packages/eslint-config-custom/**"
+      ]
+    },
+    "lint:style:fix": {
+      "outputs": [],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:type": {
+      "outputs": [],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "build": {
+      // A package's `build` script depends on that package's
+      // dependencies and devDependencies
+      // `build` tasks  being completed first
+      // (the `^` symbol signifies `upstream`).
+      "dependsOn": [
+        "^build"
+      ],
+      // note: output globs are relative to each package's `package.json`
+      // (and not the monorepo root)
+      "outputs": [
+        "dist/**"
+      ]
+    }
+  }
+}
