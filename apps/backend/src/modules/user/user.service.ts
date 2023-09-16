@@ -1,11 +1,6 @@
-import {
-  AdminUpdateUserDto,
-  CreateUserDto,
-  GetUserDto,
-  UpdateUserDto,
-} from '@test/interfaces';
 import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AdminUpdateUserDto, CreateUserDto, GetUserDto, UpdateUserDto } from '@test/interfaces';
 import { hash } from 'bcrypt';
 import { Repository } from 'typeorm';
 
