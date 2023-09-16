@@ -28,27 +28,10 @@ AdminJS.registerAdapter({ Database, Resource });
     ConfigModule.forRoot({ validate, isGlobal: true, ignoreEnvFile: true }),
     TypeOrmModule.forRoot(dataSourceOptions),
     AdminModule.createAdminAsync({
-      useFactory: (
-        sessionRepository: Repository<Session>,
-        configService: ConfigService,
-        authService: AuthService,
-      ) => {
+      useFactory: (sessionRepository: Repository<Session>, configService: ConfigService) => {
         return {
           adminJsOptions: {
             rootPath: '/admin',
-          },
-          auth: {
-            authenticate: async (email: string, password: string) => {
-              try {
-                return await authService.getUserFromCredentialsAndRoles({ email, password }, [
-                  'admin',
-                ]);
-              } catch (error) {
-                return null;
-              }
-            },
-            cookieName: 'adminjs',
-            cookiePassword: configService.getOrThrow('ADMINJS_COOKIE_SECRET'),
           },
           sessionOptions: {
             resave: false,
