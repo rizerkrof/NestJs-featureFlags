@@ -1,0 +1,8 @@
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  padding: var(--spacing);
+  gap: var(--spacing);
+  background: #313343;
+}
