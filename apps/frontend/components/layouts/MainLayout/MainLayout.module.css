@@ -2,6 +2,6 @@
   display: grid;
   height: 100%;
   grid-template: 1fr;
-  background: #313343;
+  background: var(--global_background);
   padding: var(--spacing);
 }
