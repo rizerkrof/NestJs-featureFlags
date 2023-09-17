@@ -1,0 +1,13 @@
+.div {
+  display: flex;
+  width: inherit;
+  padding: var(--spacing);
+  border-radius: var(--border_radius_parents);
+  border: var(--border_primary);
+  background: var(--background);
+}
+
+.title {
+  color: var(--color_primary);
+  font-weight: var(--font_weight_bold);
+}
