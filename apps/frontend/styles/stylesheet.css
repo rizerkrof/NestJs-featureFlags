@@ -1,6 +1,10 @@
 :root {
-  --spacing_very-small: 0.25rem;
-  --color_primary_1: black;
-  --color_primary_2: grey;
-  --color_primary_3: white;
+  --spacing: 16px;
+  --color_primary: #ab68ff;
+  --border_primary: 5px solid var(--color_primary);
+  --border_radius_parents: 29px;
+  --border_radius_children: 8px;
+  --font_weight_bold: 700;
+  --font_size_very_big: 100px;
+  --background: rgba(33 34 40 / 90%);
 }

@@ -1,6 +1,6 @@
 import 'styles/global.css';
 import 'styles/stylesheet.css';
-import { Inter } from '@next/font/google';
+import { Rubik } from '@next/font/google';
 import { AppProps } from 'next/app';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -19,14 +19,14 @@ if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
 }
 
 // https://nextjs.org/docs/basic-features/font-optimization
-const inter = Inter({ subsets: ['latin'] });
+const rubik = Rubik({ subsets: ['latin'] });
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <style jsx global>{`
         html {
-          font-family: ${inter.style.fontFamily};
+          font-family: ${rubik.style.fontFamily};
         }
       `}</style>
       <ErrorBoundary FallbackComponent={AppCrashFallback}>
@@ -40,9 +40,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
                   .then(response => response.data),
             }}
           >
-            <div>
-              <Component {...pageProps} />
-            </div>
+            <Component {...pageProps} />
           </SWRConfig>
         </Intl>
       </ErrorBoundary>

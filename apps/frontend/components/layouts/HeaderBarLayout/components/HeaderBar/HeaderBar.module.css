@@ -1,16 +1,13 @@
 .div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: inherit;
+  padding: var(--spacing);
   border-radius: var(--border_radius_parents);
   border: var(--border_primary);
   background: var(--background);
 }
 
-.p {
+.title {
   color: var(--color_primary);
-  font-size: var(--font_size_very_big);
   font-weight: var(--font_weight_bold);
-  text-align: center;
 }
