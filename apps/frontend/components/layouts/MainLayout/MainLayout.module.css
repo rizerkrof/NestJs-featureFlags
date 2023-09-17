@@ -1,8 +1,7 @@
 .main {
   display: grid;
-  grid-template-rows: auto 1fr;
   height: 100%;
-  padding: var(--spacing);
-  gap: var(--spacing);
+  grid-template: 1fr;
   background: #313343;
+  padding: var(--spacing);
 }
