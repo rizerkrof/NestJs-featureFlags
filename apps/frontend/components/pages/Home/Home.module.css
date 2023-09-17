@@ -7,3 +7,10 @@
   border: var(--border_primary);
   background: var(--background);
 }
+
+.p {
+  color: var(--color_primary);
+  font-size: var(--font_size_very_big);
+  font-weight: var(--font_weight_bold);
+  text-align: center;
+}
