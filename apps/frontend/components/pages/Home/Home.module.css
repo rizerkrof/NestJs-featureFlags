@@ -1,4 +1,9 @@
-.main {
+.div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border_radius_parents);
+  border: var(--border_primary);
+  background: var(--background);
 }

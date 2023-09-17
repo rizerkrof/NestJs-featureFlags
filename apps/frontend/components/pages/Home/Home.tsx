@@ -3,7 +3,7 @@ import Link from 'next/link';
 import style from './Home.module.css';
 
 export const Home = (): JSX.Element => (
-  <div className={style.main}>
+  <div className={style.div}>
     <h1>
       Welcome to <a href="https://nextjs.org">Next.js!</a>
     </h1>
