@@ -2,16 +2,39 @@
   width: 100%;
   height: 100%;
   display: flex;
+  gap: var(--spacing);
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.title {
+  color: var(--color_primary);
+}
+
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
   max-width: 25rem;
-  margin: 3rem auto 0;
+}
+
+.input {
+  border-radius: 8px;
+  border: var(---border_size_normal) solid var(--global_background);
+  background: var(--background);
 }
 
 .submit {
-  margin: 2rem auto 0;
+  width: 100%;
+  border-radius: var(--border_radius_children);
+  border: var(--border_size_normal) solid var(--color_secondary_700);
+  background: var(--color_secondary_500);
+  font-weight: var(--font_weight_bold);
+}
+
+.submit:focus {
+  border: var(--border_size_normal) solid var(--color_secondary_800);
+  border-radius: var(--border_radius_children);
+  outline: none;
 }
