@@ -40,9 +40,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
                   .then(response => response.data),
             }}
           >
-            <div>
-              <Component {...pageProps} />
-            </div>
+            <Component {...pageProps} />
           </SWRConfig>
         </Intl>
       </ErrorBoundary>
