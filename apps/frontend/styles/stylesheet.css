@@ -1,10 +1,17 @@
 :root {
   --spacing: 16px;
   --color_primary: #ab68ff;
-  --border_primary: 5px solid var(--color_primary);
+  --color_secondary_500: #7ff679;
+  --color_secondary_700: #61c550;
+  --color_secondary_800: #148c00;
+  --color-dark_500: #787982;
+  --color_dark_700: #3b3b42;
+  --border_size_normal: 5px;
+  --border_primary: var(--border_size_normal) solid var(--color_primary);
   --border_radius_parents: 29px;
   --border_radius_children: 8px;
   --font_weight_bold: 700;
   --font_size_very_big: 100px;
   --background: rgba(33 34 40 / 90%);
+  --global_background: #313343;
 }

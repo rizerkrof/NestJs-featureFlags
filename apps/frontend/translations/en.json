@@ -5,7 +5,7 @@
     "warning": "Your username or password is invalid. Try again.",
     "email": {
       "label": "Email",
-      "placeholder": "max@bifrost.io",
+      "placeholder": "user@domain.com",
       "error": {
         "required": "Please enter your email address",
         "invalid": "Please enter a valid email address"
@@ -13,7 +13,7 @@
     },
     "password": {
       "label": "Password",
-      "placeholder": "Password",
+      "placeholder": "password",
       "error": {
         "required": "Please enter your password"
       }

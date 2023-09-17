@@ -1,0 +1,6 @@
+.div {
+  padding: var(--spacing);
+  border-radius: var(--border_radius_parents);
+  border: var(--border_primary);
+  background: var(--background);
+}

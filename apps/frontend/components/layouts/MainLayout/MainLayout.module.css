@@ -1,0 +1,7 @@
+.main {
+  display: grid;
+  height: 100%;
+  grid-template: 1fr;
+  background: var(--global_background);
+  padding: var(--spacing);
+}
