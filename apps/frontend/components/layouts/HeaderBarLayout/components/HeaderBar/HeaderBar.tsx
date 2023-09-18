@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 
 import { ContentBoxLayout } from 'components/layouts/ContentBoxLayout';
 import { Pages } from 'constant';
