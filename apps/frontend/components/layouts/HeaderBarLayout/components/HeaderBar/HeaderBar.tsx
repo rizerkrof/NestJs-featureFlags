@@ -1,15 +1,19 @@
 import Link from 'next/link';
-import router from 'next/router';
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
 
+import { AuthContext } from 'components/contexts/auth/AutoContext';
 import { ContentBoxLayout } from 'components/layouts/ContentBoxLayout';
 import { Pages } from 'constant';
-import { useIsUserConnected } from 'services/api/auth/useIsUserConnected';
-import { removeAccessToken } from 'services/api/auth/utils';
+import { hasAccessToken, removeAccessToken } from 'services/api/auth/utils';
 
 import style from './HeaderBar.module.css';
 
 export const HeaderBar = (): JSX.Element => {
-  const isUserConnected = useIsUserConnected();
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const router = useRouter();
+
+  setIsAuthenticated(hasAccessToken());
 
   const handleOnClickLogout = () => {
     removeAccessToken();
@@ -20,15 +24,20 @@ export const HeaderBar = (): JSX.Element => {
     <ContentBoxLayout>
       <div className={style.div}>
         <h2 className={style.title}>Nest.js feature flags app!</h2>
-        {!isUserConnected && (
+        {!isAuthenticated && (
           <Link className={style.button} href={Pages.Login}>
             <p className={style.p}>Login</p>
           </Link>
         )}
-        {isUserConnected && (
-          <button className={style.button} onClick={handleOnClickLogout}>
-            <p className={style.p}>Logout</p>
-          </button>
+        {isAuthenticated && (
+          <div className={style.buttonDiv}>
+            <Link className={style.button} href={Pages.Profile}>
+              <p className={style.p}>Profile</p>
+            </Link>
+            <button className={style.button} onClick={handleOnClickLogout}>
+              <p className={style.p}>Logout</p>
+            </button>
+          </div>
         )}
       </div>
     </ContentBoxLayout>

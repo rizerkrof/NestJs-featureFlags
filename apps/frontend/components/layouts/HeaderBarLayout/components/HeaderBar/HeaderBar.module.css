@@ -8,6 +8,11 @@
   font-weight: var(--font_weight_bold);
 }
 
+.buttonDiv {
+  display: flex;
+  gap: var(--spacing);
+}
+
 .button {
   background: var(--color_secondary_500);
   border: var(--border_size_normal) solid var(--color_secondary_700);
