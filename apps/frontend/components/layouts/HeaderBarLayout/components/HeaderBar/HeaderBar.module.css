@@ -1,4 +1,28 @@
+.div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .title {
   color: var(--color_primary);
+  font-weight: var(--font_weight_bold);
+}
+
+.loginButton {
+  background: var(--color_secondary_500);
+  border: var(--border_size_normal) solid var(--color_secondary_700);
+  border-radius: var(--border_radius_children);
+  padding: 1px 8px;
+  cursor: pointer;
+}
+
+.loginButton:focus {
+  border: var(--border_size_normal) solid var(--color_secondary_800);
+  border-radius: var(--border_radius_children);
+  outline: none;
+}
+
+.p {
+  color: var(--color_black);
   font-weight: var(--font_weight_bold);
 }

@@ -31,6 +31,7 @@
   border: var(--border_size_normal) solid var(--color_secondary_700);
   background: var(--color_secondary_500);
   font-weight: var(--font_weight_bold);
+  cursor: pointer;
 }
 
 .submit:focus {
