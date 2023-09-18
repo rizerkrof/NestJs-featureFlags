@@ -17,7 +17,8 @@ export const HeaderBar = (): JSX.Element => {
 
   const handleOnClickLogout = () => {
     removeAccessToken();
-    router.reload();
+
+    return router.push(Pages.Home);
   };
 
   return (
