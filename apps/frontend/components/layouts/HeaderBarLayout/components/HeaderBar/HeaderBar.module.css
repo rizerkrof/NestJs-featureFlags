@@ -8,7 +8,7 @@
   font-weight: var(--font_weight_bold);
 }
 
-.loginButton {
+.button {
   background: var(--color_secondary_500);
   border: var(--border_size_normal) solid var(--color_secondary_700);
   border-radius: var(--border_radius_children);
@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-.loginButton:focus {
+.button:focus {
   border: var(--border_size_normal) solid var(--color_secondary_800);
   border-radius: var(--border_radius_children);
   outline: none;
