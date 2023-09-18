@@ -30,7 +30,6 @@
 html,
 body {
   height: 100%;
-  color: #787982;
 }
 
 /*
@@ -41,6 +40,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  color: #787982;
 }
 
 /*
@@ -85,4 +85,8 @@ h6 {
 #__next {
   isolation: isolate;
   height: 100%;
+}
+
+a {
+  text-decoration: none;
 }

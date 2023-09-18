@@ -6,6 +6,7 @@
   --color_secondary_800: #148c00;
   --color-dark_500: #787982;
   --color_dark_700: #3b3b42;
+  --color_black: black;
   --border_size_normal: 5px;
   --border_primary: var(--border_size_normal) solid var(--color_primary);
   --border_radius_parents: 29px;
