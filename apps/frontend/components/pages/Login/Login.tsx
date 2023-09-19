@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next/types';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { Input, PasswordInput } from 'components/atoms';
+import { AuthContext } from 'components/contexts/auth/AutoContext';
 import { ContentBoxLayout } from 'components/layouts/ContentBoxLayout';
 import { MainLayout } from 'components/layouts/MainLayout';
 import { Pages } from 'constant';
@@ -15,11 +17,16 @@ import style from './Login.module.css';
 export const Login: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm<LoginData>();
   const onSubmit = (data: LoginData) => {
     return login(data)
-      .then(() => router.push(Pages.Home))
+      .then(() => {
+        setIsAuthenticated(true);
+
+        return router.push(Pages.Home);
+      })
       .catch((e: Response) => {
         console.log(e);
       });

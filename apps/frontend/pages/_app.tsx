@@ -1,12 +1,13 @@
-import 'styles/global.css';
-import 'styles/stylesheet.css';
 import { Rubik } from '@next/font/google';
 import { AppProps } from 'next/app';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'styles/global.css';
+import 'styles/stylesheet.css';
 import { SWRConfig } from 'swr';
 
 import { AppCrashFallback, ErrorBoundary } from 'components';
+import { AuthProvider } from 'components/contexts/auth/AuthProvider';
 import { Intl } from 'providers';
 import { apiClient } from 'services/api/client';
 
@@ -40,7 +41,9 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
                   .then(response => response.data),
             }}
           >
-            <Component {...pageProps} />
+            <AuthProvider>
+              <Component {...pageProps} />
+            </AuthProvider>
           </SWRConfig>
         </Intl>
       </ErrorBoundary>
