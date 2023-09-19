@@ -5,11 +5,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: var(--spacing);
 }
 
-.p {
+.title {
   color: var(--color_primary);
   font-size: var(--font_size_very_big);
   font-weight: var(--font_weight_bold);
   text-align: center;
+}
+
+.button {
+  background: var(--color_secondary_500);
+  border: var(--border_size_normal) solid var(--color_secondary_700);
+  border-radius: var(--border_radius_children);
+  padding: 1px 8px;
+  cursor: pointer;
+}
+
+.button:focus {
+  border: var(--border_size_normal) solid var(--color_secondary_800);
+  border-radius: var(--border_radius_children);
+  outline: none;
+}
+
+.p {
+  color: var(--color_black);
+  font-weight: var(--font_weight_bold);
 }
