@@ -1,7 +1,7 @@
 export const ApiRoutes = {
-  logout: '/auth/jwt/logout',
-  login: '/auth/jwt/create',
-  refresh: '/auth/jwt/refresh',
-  me: '/users/me',
-  users: '/users/',
+  logout: { url: '/auth/jwt/logout', isPrivate: true },
+  login: { url: '/auth/jwt/create', isPrivate: false },
+  refresh: { url: '/auth/jwt/refresh', isPrivate: false },
+  me: { url: '/users/me', isPrivate: true },
+  users: { url: '/users/', isPrivate: true },
 } as const;

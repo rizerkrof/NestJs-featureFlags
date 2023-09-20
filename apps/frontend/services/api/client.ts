@@ -15,6 +15,7 @@ import {
   isTokenExpired,
   setAccessToken,
 } from './auth/utils';
+import { isRoutePrivate } from './utils/isRoutePrivate';
 
 export const apiClient = axios.create({
   baseURL: env('NEXT_PUBLIC_API_BASE_URL'),
@@ -45,8 +46,7 @@ apiClient.interceptors.request.use(
   },
   undefined,
   {
-    runWhen: config =>
-      config.url !== ApiRoutes.refresh && config.url !== ApiRoutes.login,
+    runWhen: config => isRoutePrivate(config.url),
   },
 );
 
@@ -56,7 +56,11 @@ const refreshToken = async (): Promise<void> => {
   try {
     setAccessToken(
       getAccessFromResponse(
-        await apiClient.post<unknown>(ApiRoutes.refresh, undefined, options),
+        await apiClient.post<unknown>(
+          ApiRoutes.refresh.url,
+          undefined,
+          options,
+        ),
       ),
     );
   } catch (error) {
