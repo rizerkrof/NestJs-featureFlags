@@ -8,6 +8,7 @@ import { SWRConfig } from 'swr';
 
 import { AppCrashFallback, ErrorBoundary } from 'components';
 import { AuthProvider } from 'components/contexts/auth/AuthProvider';
+import FeatureProvider from 'components/contexts/feature/FeatureProvider';
 import { Intl } from 'providers';
 import { apiClient } from 'services/api/client';
 
@@ -41,9 +42,11 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
                   .then(response => response.data),
             }}
           >
-            <AuthProvider>
-              <Component {...pageProps} />
-            </AuthProvider>
+            <FeatureProvider>
+              <AuthProvider>
+                <Component {...pageProps} />
+              </AuthProvider>
+            </FeatureProvider>
           </SWRConfig>
         </Intl>
       </ErrorBoundary>
