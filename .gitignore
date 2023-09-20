@@ -20,6 +20,9 @@ node_modules
 /build
 **/dist
 
+#data
+**/docker/db
+
 # misc
 .DS_Store
 npm-debug.log*
