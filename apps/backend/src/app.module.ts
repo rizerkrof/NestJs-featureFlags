@@ -3,6 +3,7 @@ import { Database, Resource } from '@adminjs/typeorm';
 import { AuthModule } from '@auth/auth.module';
 import { AuthService } from '@auth/auth.service';
 import { Session } from '@auth/session.entity';
+import { FeatureModule } from '@modules/feature/feature.module';
 import { MiddlewareConsumer, Module, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
@@ -51,6 +52,7 @@ AdminJS.registerAdapter({ Database, Resource });
     UserModule,
     AuthModule,
     LoggerModule,
+    FeatureModule,
   ],
   controllers: [AppController],
   providers: [
