@@ -7,7 +7,7 @@ import { ApiRoutes } from '../apiRoutes';
 import { apiClient } from '../client';
 
 export const useGetMe = () => {
-  const { data, error } = useSWR<GetUserDto, unknown>(ApiRoutes.me);
+  const { data, error } = useSWR<GetUserDto, unknown>(ApiRoutes.me.url);
 
   if (error !== undefined) {
     logger.error(error);
@@ -19,5 +19,5 @@ export const useGetMe = () => {
 };
 
 export const updateMe = async (data: UpdateUserDto): Promise<void> => {
-  await apiClient.patch<unknown>(ApiRoutes.users, data);
+  await apiClient.patch<unknown>(ApiRoutes.users.url, data);
 };

@@ -9,5 +9,7 @@ export type LoginData = {
 
 export const login = async (data: LoginData): Promise<void> =>
   setAccessToken(
-    getAccessFromResponse(await apiClient.post<unknown>(ApiRoutes.login, data)),
+    getAccessFromResponse(
+      await apiClient.post<unknown>(ApiRoutes.login.url, data),
+    ),
   );
