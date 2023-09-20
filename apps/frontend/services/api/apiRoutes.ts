@@ -4,4 +4,5 @@ export const ApiRoutes = {
   refresh: { url: '/auth/jwt/refresh', isPrivate: false },
   me: { url: '/users/me', isPrivate: true },
   users: { url: '/users/', isPrivate: true },
+  features: { url: '/features', isPrivate: false },
 } as const;
